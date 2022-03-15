@@ -1,0 +1,184 @@
+
+Microsoft (R) Windows Debugger Version 10.0.22000.194 AMD64
+Copyright (c) Microsoft Corporation. All rights reserved.
+
+
+Loading Dump File [C:\Windows\MEMORY.DMP]
+Kernel Bitmap Dump File: Kernel address space is available, User address space may not be available.
+
+Symbol search path is: srv*
+Executable search path is: 
+Windows 10 Kernel Version 19041 MP (16 procs) Free x64
+Product: WinNt, suite: TerminalServer SingleUserTS
+Edition build lab: 19041.1.amd64fre.vb_release.191206-1406
+Machine Name:
+Kernel base = 0xfffff801`22400000 PsLoadedModuleList = 0xfffff801`2302a2d0
+Debug session time: Tue Mar 15 16:23:48.400 2022 (UTC - 7:00)
+System Uptime: 0 days 0:02:55.072
+Loading Kernel Symbols
+...............................................................
+................................................................
+................................................................
+.............................
+Loading User Symbols
+
+Loading unloaded module list
+..........
+For analysis of this file, run !analyze -v
+1: kd> !analyze -v
+*******************************************************************************
+*                                                                             *
+*                        Bugcheck Analysis                                    *
+*                                                                             *
+*******************************************************************************
+
+SYSTEM_THREAD_EXCEPTION_NOT_HANDLED (7e)
+This is a very common bugcheck.  Usually the exception address pinpoints
+the driver/function that caused the problem.  Always note this address
+as well as the link date of the driver/image that contains this address.
+Arguments:
+Arg1: ffffffffc0000005, The exception code that was not handled
+Arg2: fffff80122698f34, The address that the exception occurred at
+Arg3: ffffce813bd033d8, Exception Record Address
+Arg4: ffffce813bd02c10, Context Record Address
+
+Debugging Details:
+------------------
+
+Unable to load image \SystemRoot\System32\drivers\NGCx64\1616020.00A\SYMEFASI64.SYS, Win32 error 0n2
+Unable to load image \SystemRoot\System32\drivers\NGCx64\1616020.00A\symnets.sys, Win32 error 0n2
+
+KEY_VALUES_STRING: 1
+
+    Key  : AV.Fault
+    Value: Read
+
+    Key  : Analysis.CPU.mSec
+    Value: 3624
+
+    Key  : Analysis.DebugAnalysisManager
+    Value: Create
+
+    Key  : Analysis.Elapsed.mSec
+    Value: 18688
+
+    Key  : Analysis.Init.CPU.mSec
+    Value: 2734
+
+    Key  : Analysis.Init.Elapsed.mSec
+    Value: 21223
+
+    Key  : Analysis.Memory.CommitPeak.Mb
+    Value: 93
+
+    Key  : WER.OS.Branch
+    Value: vb_release
+
+    Key  : WER.OS.Timestamp
+    Value: 2019-12-06T14:06:00Z
+
+    Key  : WER.OS.Version
+    Value: 10.0.19041.1
+
+
+BUGCHECK_CODE:  7e
+
+BUGCHECK_P1: ffffffffc0000005
+
+BUGCHECK_P2: fffff80122698f34
+
+BUGCHECK_P3: ffffce813bd033d8
+
+BUGCHECK_P4: ffffce813bd02c10
+
+EXCEPTION_RECORD:  ffffce813bd033d8 -- (.exr 0xffffce813bd033d8)
+ExceptionAddress: fffff80122698f34 (nt!RtlEqualSid+0x0000000000000004)
+   ExceptionCode: c0000005 (Access violation)
+  ExceptionFlags: 00000000
+NumberParameters: 2
+   Parameter[0]: 0000000000000000
+   Parameter[1]: ffffffffffffffff
+Attempt to read from address ffffffffffffffff
+
+CONTEXT:  ffffce813bd02c10 -- (.cxr 0xffffce813bd02c10)
+rax=0000000000000000 rbx=ffff938ea8757a90 rcx=0003000000020901
+rdx=fffff801252b9c60 rsi=ffff938eb5e19790 rdi=ffffbe8b489ab200
+rip=fffff80122698f34 rsp=ffffce813bd03610 rbp=ffffce813bd03719
+ r8=ffffce813bd03640  r9=ffffce813bd03618 r10=ffff938ea4be7180
+r11=ffff938eadc61010 r12=0000000000000000 r13=fffff801252b9c90
+r14=ffffbe8b4da4b510 r15=0000000000004000
+iopl=0         nv up ei ng nz na pe nc
+cs=0010  ss=0018  ds=002b  es=002b  fs=0053  gs=002b             efl=00050282
+nt!RtlEqualSid+0x4:
+fffff801`22698f34 0fb701          movzx   eax,word ptr [rcx] ds:002b:00030000`00020901=????
+Resetting default scope
+
+BLACKBOXBSD: 1 (!blackboxbsd)
+
+
+BLACKBOXNTFS: 1 (!blackboxntfs)
+
+
+BLACKBOXPNP: 1 (!blackboxpnp)
+
+
+BLACKBOXWINLOGON: 1
+
+PROCESS_NAME:  System
+
+READ_ADDRESS:  ffffffffffffffff 
+
+ERROR_CODE: (NTSTATUS) 0xc0000005 - The instruction at 0x%p referenced memory at 0x%p. The memory could not be %s.
+
+EXCEPTION_CODE_STR:  c0000005
+
+EXCEPTION_PARAMETER1:  0000000000000000
+
+EXCEPTION_PARAMETER2:  ffffffffffffffff
+
+EXCEPTION_STR:  0xc0000005
+
+STACK_TEXT:  
+ffffce81`3bd03610 fffff801`2531c45b     : ffffbe8b`371d1700 ffff938e`a8757a90 ffffce81`3bd03719 ffff938e`b5e19790 : nt!RtlEqualSid+0x4
+ffffce81`3bd03640 fffff801`2531d003     : ffff938e`b5e19790 00000000`00000000 00030000`00020901 00000000`00000000 : SYMEFASI64+0x1ac45b
+ffffce81`3bd03680 fffff801`2531b5cc     : ffffbe8b`4da4b510 ffffbe8b`371d17b0 ffffce81`40000008 fffff801`2528fe01 : SYMEFASI64+0x1ad003
+ffffce81`3bd03780 fffff801`253405d0     : ffffbe8b`371d1670 fffff801`40000008 ffffbe8b`00000001 ffffce81`3bd03a20 : SYMEFASI64+0x1ab5cc
+ffffce81`3bd03810 fffff801`253316da     : ffffbe8b`371d1840 ffffbe8b`371d1828 ffffbe8b`371d1670 fffff801`2531a313 : SYMEFASI64+0x1d05d0
+ffffce81`3bd03850 fffff801`2533265a     : ffffbe8b`371d17a8 fffff801`252e9000 00000000`00000000 00000000`00000001 : SYMEFASI64+0x1c16da
+ffffce81`3bd038d0 fffff801`25332a06     : 00000000`00000000 ffff938e`b3d53860 fffff801`25307b90 ffffbe8b`371d1670 : SYMEFASI64+0x1c265a
+ffffce81`3bd03980 fffff801`2cc75476     : 00000000`00000000 ffff938e`a8bb3730 fffff801`2ccc0cc8 ffffce81`3fe2d990 : SYMEFASI64+0x1c2a06
+ffffce81`3bd039c0 fffff801`2cc75892     : 00000000`00000000 00000000`00000100 ffff938e`a8bb3730 ffff938e`ae247080 : symnets+0x15476
+ffffce81`3bd03ad0 fffff801`22674835     : 00000000`00000000 ffff938e`b2469e10 ffff938e`a8bb3730 ffff938e`ae2471c0 : symnets+0x15892
+ffffce81`3bd03b00 fffff801`226b86d5     : ffff938e`a4a13080 ffff938e`a4a13080 fffff801`22674700 ffff938e`00000000 : nt!IopProcessWorkItem+0x135
+ffffce81`3bd03b70 fffff801`22755a15     : ffff938e`a4a13080 00000000`00000080 ffff938e`a0ec4080 000f8067`b4bbbdff : nt!ExpWorkerThread+0x105
+ffffce81`3bd03c10 fffff801`227fec78     : ffffa781`35280180 ffff938e`a4a13080 fffff801`227559c0 00000000`00000000 : nt!PspSystemThreadStartup+0x55
+ffffce81`3bd03c60 00000000`00000000     : ffffce81`3bd04000 ffffce81`3bcfe000 00000000`00000000 00000000`00000000 : nt!KiStartSystemThread+0x28
+
+
+SYMBOL_NAME:  SYMEFASI64+1ac45b
+
+MODULE_NAME: SYMEFASI64
+
+IMAGE_NAME:  SYMEFASI64.SYS
+
+IMAGE_VERSION:  7.4.1.44
+
+STACK_COMMAND:  .cxr 0xffffce813bd02c10 ; kb
+
+BUCKET_ID_FUNC_OFFSET:  1ac45b
+
+FAILURE_BUCKET_ID:  AV_SYMEFASI64!unknown_function
+
+OS_VERSION:  10.0.19041.1
+
+BUILDLAB_STR:  vb_release
+
+OSPLATFORM_TYPE:  x64
+
+OSNAME:  Windows 10
+
+FAILURE_ID_HASH:  {1ffcb7dc-0496-630c-d941-dea199f43a72}
+
+Followup:     MachineOwner
+---------
+
