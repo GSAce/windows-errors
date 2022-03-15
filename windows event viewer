@@ -1,0 +1,16 @@
+SCEP Certificate enrollment initialization for WORKGROUP\DOUG-MAIN$ via https://AMD-KeyId-578c545f796951421221a4a578acdb5f682f89c8.microsoftaik.azure.net/templates/Aik/scep failed:
+
+GetCACaps
+GetCACaps: Not Found
+{"Message":"The authority \"amd-keyid-578c545f796951421221a4a578acdb5f682f89c8.microsoftaik.azure.net\" does not exist."}
+HTTP/1.1 404 Not Found
+Date: Tue, 15 Mar 2022 22:11:59 GMT
+Content-Length: 121
+Content-Type: application/json; charset=utf-8
+X-Content-Type-Options: nosniff
+Strict-Transport-Security: max-age=31536000;includeSubDomains
+x-ms-request-id: 5554579f-af9b-4c23-9ed0-aadd64e28238
+
+Method: GET(1282ms)
+Stage: GetCACaps
+Not found (404). 0x80190194 (-2145844844 HTTP_E_STATUS_NOT_FOUND)
